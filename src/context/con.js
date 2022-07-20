@@ -8,7 +8,7 @@ let [post,setPost]=useState([])
 let [del,setDel]=useState(0)
 //verify data
 useEffect(()=>{
-let uri='https://kitty-album-back-f2414lmv0-mbittu00.vercel.app/auth/verify'
+let uri='https://kitty-album-back.vercel.app/auth/verify'
 async function call(){
   try {
 let string=token.toString()
@@ -26,7 +26,7 @@ call()
 },[token])
 //gallary post's 
 useEffect(()=>{
-let uri='https://kitty-album-back-f2414lmv0-mbittu00.vercel.app/img/get'
+let uri='https://kitty-album-back.vercel.app/img/get'
   async function call(){
     try {
 let string=token.toString()
