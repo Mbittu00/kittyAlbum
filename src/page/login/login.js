@@ -9,6 +9,7 @@ import context from'../../context/context'
 
 function Login() {
   let api=useContext(context)
+  let history=useNavigate()
   let [username,setUserName]=useState('')
   let [password,setPassword]=useState('')
   let submit=async()=>{
@@ -18,6 +19,7 @@ function Login() {
   let string=res.data.token.toString()
   localStorage.setItem('token',string)
   api.setVerify(res.data)
+  history('/')
   } catch (e) {
     console.log(e)
     
