@@ -15,7 +15,7 @@ function App() {
   let api=useContext(context)
   useEffect(()=>{
     if (api.token) {
-      history('/')
+     
     }else{
       history('/auth')
     }

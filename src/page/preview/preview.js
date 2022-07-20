@@ -26,7 +26,7 @@ if (have) {
   },[params.id])
   return (
     <>
-    <Head/>
+    <Head data={data}/>
     <br/>
     <div className="preview">
 <img src={data.imgUri} className='pic'/>

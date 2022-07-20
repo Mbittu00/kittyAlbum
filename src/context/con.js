@@ -5,6 +5,7 @@ function Con({ children }) {
 let [token,setToken]=useState(localStorage.getItem('token'))
 let [verify,setVerify]=useState({})
 let [post,setPost]=useState([])
+let [del,setDel]=useState(0)
 //verify data
 useEffect(()=>{
 let uri='https://kitty-album-back-f2414lmv0-mbittu00.vercel.app/auth/verify'
@@ -41,10 +42,10 @@ let string=token.toString()
   }else{
     
   }
-},[token])
+},[token,del])
   return(
   <Context.Provider value={{
-token,setToken,verify,setVerify,setPost,post
+token,setToken,verify,setVerify,setPost,post,setDel
   }}>
   {children}
   </Context.Provider>
