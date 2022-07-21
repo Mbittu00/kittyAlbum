@@ -27,4 +27,12 @@ border: 1px solid rgba(255, 255, 255, 0.3);
   text-transform: uppercase;
   border: orange solid 2px;
   background: transparent;
+}label{
+  background: orange;
+  width: 80px;
+  height: 35px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

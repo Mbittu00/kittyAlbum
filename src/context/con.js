@@ -4,11 +4,13 @@ import axios from'axios'
 function Con({ children }) {
 let [token,setToken]=useState(localStorage.getItem('token'))
 let [verify,setVerify]=useState({})
+let [viewOpen,setViewOpen]=useState(false)
+let [view,setView]=useState({})
 let [post,setPost]=useState([])
 let [del,setDel]=useState(0)
 //verify data
 useEffect(()=>{
-let uri='https://kitty-album-back.vercel.app/auth/verify'
+let uri='http://192.168.43.125:8080/auth/verify'
 async function call(){
   try {
 let string=token.toString()
@@ -26,7 +28,7 @@ call()
 },[token])
 //gallary post's 
 useEffect(()=>{
-let uri='https://kitty-album-back.vercel.app/img/get'
+let uri='http://192.168.43.125:8080/img/get'
   async function call(){
     try {
 let string=token.toString()
@@ -43,9 +45,13 @@ let string=token.toString()
     
   }
 },[token,del])
+
+//console
+console.log(viewOpen)
   return(
   <Context.Provider value={{
-token,setToken,verify,setVerify,setPost,post,setDel
+token,setToken,verify,setVerify,setPost,post,setDel,view,
+setView,setViewOpen,viewOpen
   }}>
   {children}
   </Context.Provider>

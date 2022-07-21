@@ -3,7 +3,7 @@ import './home.css';
 import {
   Link
 } from "react-router-dom";
-import Head from'./head'
+import Popup from'./popup'
 import Foot from'./foot'
 import Body from'./body'
 import context from'../../context/context'
@@ -13,13 +13,15 @@ function Home() {
   console.log(api.post)
   return (
     <div className="home">
-<Head/>
 <div className='bb'>
 {
   api.post.map((e)=>(
   <Body key={e._id} data={e}/> 
   ))
 }
+</div>
+<div className='pop'>
+<Popup/>
 </div>
 <Foot/>
     </div>

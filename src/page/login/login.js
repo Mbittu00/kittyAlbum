@@ -10,11 +10,13 @@ import context from'../../context/context'
 function Login() {
   let api=useContext(context)
   let history=useNavigate()
+  let [load,setLoad]=useState(false)
   let [username,setUserName]=useState('')
   let [password,setPassword]=useState('')
   let submit=async()=>{
   try {
- let res=await axios.post('https://kitty-album-back.vercel.app/auth/login',{username,password})
+  setLoad(true)
+ let res=await axios.post('http://192.168.43.125:8080/auth/login',{username,password})
   api.setToken(res.data.token)
   let string=res.data.token.toString()
   localStorage.setItem('token',string)
@@ -22,11 +24,12 @@ function Login() {
   history('/')
   } catch (e) {
     console.log(e)
-    
+    setLoad(false)
   }
   
   }
   return (
+    <>{!load?
     <div className="login">
     <div>
     <span>KittyAlbum</span>
@@ -38,7 +41,11 @@ function Login() {
     </div>
     <button onClick={submit}>login</button>
     </div>
-    </div>
+    </div>:
+    <div className='mainLoad'>
+    <div className='load'></div>
+    </div>}
+    </>
   );
 }
 

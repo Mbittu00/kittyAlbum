@@ -3,9 +3,13 @@
   flex-wrap: wrap;
 justify-content: center;
 gap: 10px;
-margin-top: 70px;
+margin-top: 10px;
 margin-bottom: 70px;
 }.no{
   position: absolute;
   top: 50vh;
+}.pop{
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

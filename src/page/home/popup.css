@@ -1,0 +1,39 @@
+.popup{
+  width: 90vw;
+  height: 90vh;
+  background: white;
+  position: fixed;
+  z-index: 99;
+  top: 10px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 2px solid #dadada;
+}.popup>img{
+  height: 90%;
+  width: 98%;
+  margin-top: 10px;
+  border-radius: 20px;
+  object-fit: cover;
+}.popup>div{
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  align-items: center;
+  height: 50px;
+  
+}.start{
+  width: 85px;
+}.popup>div>span{
+  font-size: large;
+  width: 85px;
+  margin-left: 10px;
+}.close{
+  position: fixed;
+  top: 30px;
+  right: 30px;
+  color: #9cfbf8;
+}.del{
+  width: 85px;
+}

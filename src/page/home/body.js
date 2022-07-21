@@ -1,10 +1,12 @@
 import "./body.css";
-import {useNavigate} from "react-router-dom"
+import context from '../../context/context'
+import {useContext}from'react'
 import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 function Body({data}) {
-  let history=useNavigate()
+  let api=useContext(context)
   let handle=()=>{
-  history(`/pre/${data._id}`)
+ api.setView(data)
+ api.setViewOpen(true)
   }
   return (
     <div className="body" onClick={handle}>
