@@ -31,7 +31,7 @@ function Foot() {
   let upRes=await uploadBytes(imageRef,image)
   console.log(upRes.metadata.fullPath)
   let durl=await getDownloadURL(upRes.ref)
-  let uri='http://192.168.43.125:8080/img/post'
+  let uri='https://kitty-album-back.vercel.app/img/post'
   let res=await axios.post(uri,{
     token:api.token,uri:durl,pathName:upRes.metadata.fullPath})
   api.setPost((n)=>[...n,res.data])

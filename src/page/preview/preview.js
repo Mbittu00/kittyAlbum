@@ -10,7 +10,7 @@ function Preview() {
   let [have,setHave]=useState(params.id?true:false)
   useEffect(()=>{
 async function call(){
-let uri=`http://192.168.43.125:8080/img/find/${params.id}`
+let uri=`https://kitty-album-back.vercel.app/img/find/${params.id}`
   try {
  let res=await axios.get(uri)
  setData(res.data)

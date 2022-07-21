@@ -11,7 +11,7 @@ export default function Head({data}){
   let history=useNavigate()
   console.log(data)
   let dele=async()=>{
-let uri=`http://192.168.43.125:8080/img/delete/${data._id}`
+let uri=`https://kitty-album-back.vercel.app/img/delete/${data._id}`
 try {
  const delref = ref(storage, data.pathName);
 let delet=await deleteObject(delref)

@@ -16,7 +16,7 @@ function Login() {
   let submit=async()=>{
   try {
   setLoad(true)
- let res=await axios.post('http://192.168.43.125:8080/auth/login',{username,password})
+ let res=await axios.post('https://kitty-album-back.vercel.app/auth/login',{username,password})
   api.setToken(res.data.token)
   let string=res.data.token.toString()
   localStorage.setItem('token',string)

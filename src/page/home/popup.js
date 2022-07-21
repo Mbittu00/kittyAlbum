@@ -11,7 +11,7 @@ export default function Popup(){
     api.setViewOpen(false)
   }
   let del=async()=>{
-let uri=`http://192.168.43.125:8080/img/delete/${api.view._id}`
+let uri=`https://kitty-album-back.vercel.app/img/delete/${api.view._id}`
 try {
  const delref = ref(storage, api.view.pathName);
 let delet=await deleteObject(delref)
