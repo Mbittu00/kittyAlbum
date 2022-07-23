@@ -1,12 +1,13 @@
 import "./foot.css";
 import { HiViewGridAdd } from "react-icons/hi";
-import { BsFillPeopleFill, BsGithub } from "react-icons/bs";
+import { BsFillPeopleFill, BsGithub} from "react-icons/bs";
 import { MdFavorite } from "react-icons/md";
-import { AiFillInstagram } from "react-icons/ai";
+import { CgProfile } from "react-icons/cg";
 import { useState, useContext } from "react";
 import axios from "axios";
 import context from "../../context/context";
 import { storage } from "../../firebase";
+import {Link}from "react-router-dom";
 import {
   ref,
   uploadBytes,
@@ -47,13 +48,15 @@ function Foot() {
         <input type="file" onChange={call}
         accept='image/*' />
       </label>
-      <button>
+    <Link to='/users' className='link usr'>  <button>
         <BsFillPeopleFill size={"18px"} color="orange" />
         user
-      </button>
-      <MdFavorite size={"20px"} />
+      </button></Link>
+   <Link to='/like' className='link'><MdFavorite size={"20px"} /></Link>
       <BsGithub size={"20px"} />
-      <AiFillInstagram size={"20px"} />
+     <Link to={`/profile/${api.verify._id}`} 
+     className='link'> 
+     <CgProfile size={"20px"} /></Link>
     </div>
   );
 }

@@ -7,6 +7,7 @@ let [verify,setVerify]=useState({})
 let [viewOpen,setViewOpen]=useState(false)
 let [view,setView]=useState({})
 let [post,setPost]=useState([])
+let [apost,setaPost]=useState(true)
 let [del,setDel]=useState(0)
 //verify data
 useEffect(()=>{
@@ -34,9 +35,11 @@ let uri='https://kitty-album-back.vercel.app/img/get'
 let string=token.toString()
   let res=await axios.post(uri,{token:string})
   setPost(res.data)
+  setaPost(false)
   console.log(res.data)
     } catch (e) {
       alert(e)
+      setaPost(true)
     }
   };
   if(token){
@@ -51,7 +54,7 @@ console.log(viewOpen)
   return(
   <Context.Provider value={{
 token,setToken,verify,setVerify,setPost,post,setDel,view,
-setView,setViewOpen,viewOpen
+setView,setViewOpen,viewOpen,apost,setaPost
   }}>
   {children}
   </Context.Provider>

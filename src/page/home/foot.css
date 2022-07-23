@@ -15,7 +15,7 @@ backdrop-filter: blur(5px);
 border: 1px solid rgba(255, 255, 255, 0.3);
 }.foot>label>input{
   display: none;
-}.foot>button{
+}.usr>button{
   color: orange;
   width: 80px;
   display: flex;
@@ -35,4 +35,7 @@ border: 1px solid rgba(255, 255, 255, 0.3);
   display: flex;
   align-items: center;
   justify-content: center;
+}.link{
+  text-decoration: none;
+  color: black;
 }

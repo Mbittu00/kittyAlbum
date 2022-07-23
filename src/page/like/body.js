@@ -8,7 +8,7 @@ function Body({data}) {
  api.setView(data)
  api.setViewOpen(true)
   }
-  
+  console.log(data)
   return (
     <div className="body" onClick={handle}>
       <img src={data.imgUri}/>

@@ -22,17 +22,6 @@ api.setDel((n)=>n+1)
   alert(e)
 }
   }
-   let like=async()=>{
-  let token=localStorage.getItem('token')
-  let uri='https://kitty-album-back.vercel.app/auth/like'
-  try {
-let res=await axios.put(uri,{_id:api.verify._id,
-like:api.view._id})
-api.setVerify(res.data)
-  } catch (e) {
-    alert(e)
-  }
-  }
   return (
     <>{api.viewOpen?
     <div className='popup'>
@@ -41,15 +30,10 @@ api.setVerify(res.data)
     onClick={close}/>
     <div>
     <span>{api.view.username}</span>
-  {api.verify.username==api.view.username?
+  {!api.verify.username==api.view.username?
   <AiOutlineDelete size='30px' className='del'
     onClick={del}/>:''}
-   {!api.verify.fav.includes(api.view._id)?
-   <AiOutlineStar size={'30px'} className='start'
-    onClick={like}/>:
-     <AiFillStar size='30px' className='start'
-     onClick={like}/>
-   }
+    <AiOutlineStar size={'30px'} className='start'/>
     </div>
     </div>:''}
     </>
