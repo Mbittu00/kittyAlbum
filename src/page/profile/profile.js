@@ -9,6 +9,13 @@ import Body from'./body'
 import Popup from'./popup'
 import context from'../../context/context'
 import {useNavigate} from "react-router-dom"
+import { storage } from "../../firebase";
+import {
+  ref,
+  uploadBytes,
+  getDownloadURL,
+  deleteObject
+} from "firebase/storage";
 export default function Profile() {
   let api=useContext(context)
   let params = useParams();
@@ -26,8 +33,6 @@ export default function Profile() {
         setUser(rez.data);
         setPost(res.data);
         setLoad(false)
-        console.log("img", res.data);
-        console.log("auth", rez.data);
       } catch (e) {
         alert(e);
         setLoad(true)
@@ -41,6 +46,44 @@ export default function Profile() {
    api.setVerify({})
    api.setPost([])
    history('/auth')
+ }
+ let pro=async(e)=>{
+   let uri='https://kitty-album-back.vercel.app/auth/profile/img'
+   if (api.verify.imgUri) {
+     try {
+       let img=e.target.files[0]
+ const delref = ref(storage, user.imgPath);
+let delet=await deleteObject(delref)
+//agein
+let imgRef=ref(storage,`/profile/${Date.now()+img.name}`)
+let upload=await uploadBytes(imgRef,img)
+let gett=await getDownloadURL(upload.ref)
+let res=await axios.post(uri,{
+  _id:api.verify._id,imgUri:gett,
+  imgPath:upload.metadata.fullPath
+})
+api.setVerify(res.data)
+setUser(res.data)
+
+} catch (e) {
+  alert(e)
+}
+   }else{
+     try {
+     let img=e.target.files[0]
+let imgRef=ref(storage,`/profile/${Date.now()+img.name}`)
+let upload=await uploadBytes(imgRef,img)
+let gett=await getDownloadURL(upload.ref)
+let res=await axios.post(uri,{
+  _id:api.verify._id,imgUri:gett,
+  imgPath:upload.metadata.fullPath
+})
+api.setVerify(res.data)
+setUser(res.data)
+   } catch (e) {
+     console.log(e)
+   }
+   }
  }
   return (
     <>
@@ -70,7 +113,11 @@ export default function Profile() {
           </div>{" "}
         {user.username==api.verify.username?
         <div>
+        <label className='pl'>
+  <input type='file' className='innnnn'
+  onChange={pro}/>
             <FiEdit size='17px'/>
+        </label>
             <span>edit</span>
           </div>:''}
           <div>

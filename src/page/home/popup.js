@@ -40,7 +40,10 @@ api.setVerify(res.data)
     <AiOutlineClose size='25px' className='close'
     onClick={close}/>
     <div>
+    <div>
     <span>{api.view.username}</span>
+    
+    </div>
   {api.verify.username==api.view.username?
   <AiOutlineDelete size='30px' className='del'
     onClick={del}/>:''}

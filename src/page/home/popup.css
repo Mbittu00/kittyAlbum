@@ -25,7 +25,7 @@
   
 }.start{
   width: 85px;
-}.popup>div>span{
+}.popup>div>div>span{
   font-size: large;
   width: 85px;
   margin-left: 10px;

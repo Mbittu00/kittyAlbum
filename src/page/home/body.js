@@ -14,7 +14,7 @@ function Body({data}) {
       <img src={data.imgUri}/>
       <div>
         <span>{data.username}</span>
-  {!api.verify.fav.includes(data._id)?
+  {!api.verify.fav.includes(data._id)||false?
   <AiOutlineStar size={"20px"} className='st'/>:
   <AiFillStar size={"20px"} className='st' 
         />}

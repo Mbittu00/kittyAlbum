@@ -12,7 +12,7 @@ export default function Like(){
     async function call() {
   let uri='https://kitty-album-back.vercel.app/auth/get/like' 
   try {
-  console.log('ver',api.verify.username)
+//  console.log('ver',api.verify.username)
   let res=await axios.post(uri,{_id:api.verify._id})
   setData(res.data)
   } catch (e) {
@@ -22,7 +22,6 @@ export default function Like(){
     if (api.verify.username) {
       call()
     }else{
-      
     }
   },[api.verify])
   return (
@@ -31,8 +30,8 @@ export default function Like(){
     <br/>
     <div className='like'>
     {
-      data.map((e)=>(
-     <Body key={e._id} data={e}/>
+      data.map((e,i)=>(
+     <Body key={i} data={e}/>
       ))
     }
     </div>

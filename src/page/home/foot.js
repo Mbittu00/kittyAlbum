@@ -11,9 +11,7 @@ import {Link}from "react-router-dom";
 import {
   ref,
   uploadBytes,
-  getDownloadURL,
-  listAll,
-  list,
+  getDownloadURL
 } from "firebase/storage";
 function Foot() {
   let api = useContext(context);
@@ -30,7 +28,6 @@ function Foot() {
   let imageRef=ref(storage,`/images/${Date.now()+image.name}`)
   try {
   let upRes=await uploadBytes(imageRef,image)
-  console.log(upRes.metadata.fullPath)
   let durl=await getDownloadURL(upRes.ref)
   let uri='https://kitty-album-back.vercel.app/img/post'
   let res=await axios.post(uri,{
