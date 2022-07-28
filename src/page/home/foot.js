@@ -32,7 +32,7 @@ function Foot() {
   let uri='https://kitty-album-back.vercel.app/img/post'
   let res=await axios.post(uri,{
     token:api.token,uri:durl,pathName:upRes.metadata.fullPath})
-  api.setPost((n)=>[...n,res.data])
+  api.setPost((n)=>[res.data,...n])
   } catch (e) {
     alert(e)
   }
